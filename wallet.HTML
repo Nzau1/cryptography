@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>T-WALLET</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .wallet {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        .wallet h1 {
+            font-size: 24px;
+        }
+
+        .wallet-content {
+            margin-top: 20px;
+        }
+
+        .balance {
+            font-size: 18px;
+        }
+
+        /* Simulated wallet address */
+        .wallet-address {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        /* Link to the graph page */
+        .graph-link {
+            font-size: 18px;
+            color: blue;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="wallet">
+        <h1>T-WALLET</h1>
+        <div class="wallet-content">
+            <p class="balance">Your Token Balance:</p>
+            <p id="tokenBalance">Loading...</p>
+            <p class="wallet-address">Wallet Address: 0xc8bebe3142e3f</p>
+            <p class="user-name">User: John Doe</p>
+            <p class="graph-link" onclick="redirectToGraph()">View Incremental Graph</p>
+        </div>
+    </div>
+
+    <script>
+        // Function to generate a random number of tokens (odd number)
+        function generateRandomTokens() {
+            const minTokens = 1;
+            const maxTokens = 10000; // Adjust the maximum value as needed
+            const randomTokens = Math.floor(Math.random() * (maxTokens - minTokens + 1)) + minTokens;
+            // Make sure the number is odd
+            return randomTokens % 2 === 0 ? randomTokens + 1 : randomTokens;
+        }
+
+        // Function to update the token balance
+        function updateTokenBalance() {
+            const tokenBalanceElement = document.getElementById('tokenBalance');
+            const randomTokens = generateRandomTokens();
+            tokenBalanceElement.textContent = `${randomTokens} AEF COINS`;
+        }
+
+        // Function to update the user's name and wallet address (simulated)
+        function updateUserInfo() {
+            const userNameElement = document.querySelector('.user-name');
+            userNameElement.textContent = "User: John Doe"; // Replace with the user's name
+        }
+
+        // Function to redirect to the graph page
+        function redirectToGraph() {
+            window.location.href = 'graph.html';
+        }
+
+        // Initialize the wallet
+        window.onload = function () {
+            updateTokenBalance();
+            updateUserInfo();
+        };
+    </script>
+</body>
+</html>

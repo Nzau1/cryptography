@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>T-WALLET</title>
+    <style>
+        /* Your CSS styles for the wallet page */
+    </style>
+</head>
+<body>
+    <h1>T-WALLET</h1>
+    
+    <div class="wallet-content">
+        <!-- Wallet Address Section -->
+        <div class="wallet-address">
+            <h2>Your Wallet Address:</h2>
+            <p id="walletAddress">Loading...</p>
+        </div>
+
+        <!-- Token Balance Section -->
+        <div class="token-balance">
+            <h2>Your Token Balance:</h2>
+            <p id="tokenBalance">10,000 AEF COINS</p>
+        </div>
+
+        <!-- Transfer Tokens Section -->
+        <div class="transfer-section">
+            <h2>Transfer AEF COINS</h2>
+            <label for="recipient">Recipient:</label>
+            <input type="text" id="recipient" placeholder="Recipient's Wallet Address" required><br><br>
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" placeholder="Amount to Transfer" required><br><br>
+            <button onclick="transferTokens()">Transfer</button>
+        </div>
+    </div>
+
+    <!-- Blockchain Simulation Section -->
+    <div class="blockchain-section">
+        <h2>Blockchain Transactions</h2>
+        <ul id="blockchainList">
+            <!-- Transaction blocks will be displayed here -->
+        </ul>
+    </div>
+
+    <script>
+        // Simulated wallet address (for demonstration purposes)
+        const walletAddress = "0x1234567890ABCDEF";
+
+        // Simulated token balance
+        let tokenBalance = 10000;
+
+        // Simulated blockchain database (array of blocks)
+        const blockchain = [];
+
+        // Function to update the token balance
+        function updateTokenBalance() {
+            const tokenBalanceElement = document.getElementById('tokenBalance');
+            tokenBalanceElement.textContent = `${tokenBalance} AEF COINS`;
+        }
+
+        // Function to simulate transferring tokens
+        function transferTokens() {
+            const recipient = document.getElementById('recipient').value;
+            const amount = parseInt(document.getElementById('amount').value, 10);
+
+            if (amount <= 0 || isNaN(amount) || amount > tokenBalance) {
+                alert("Invalid amount or insufficient balance.");
+                return;
+            }
+
+            // Simulate the transfer by creating a transaction block
+            const transaction = {
+                sender: walletAddress,
+                recipient: recipient,
+                amount: amount,
+            };
+
+            blockchain.push(transaction);
+
+            // Update the token balance and blockchain display
+            tokenBalance -= amount;
+            updateTokenBalance();
+            displayBlockchain();
+
+            alert(`Transferred ${amount} AEF COINS to ${recipient}`);
+        }
+
+        // Function to display the blockchain transactions
+        function displayBlockchain() {
+            const blockchainList = document.getElementById('blockchainList');
+            blockchainList.innerHTML = '';
+
+            blockchain.forEach((transaction, index) => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `Transaction ${index + 1}: 
+                From ${transaction.sender} to ${transaction.recipient}, Amount: ${transaction.amount} AEF COINS`;
+                blockchainList.appendChild(listItem);
+            });
+        }
+
+        // Initialize the wallet address, token balance, and blockchain display
+        window.onload = function () {
+            const walletAddressElement = document.getElementById('walletAddress');
+            walletAddressElement.textContent = walletAddress;
+
+            updateTokenBalance();
+            displayBlockchain();
+        };
+    </script>
+</body>
+</html>

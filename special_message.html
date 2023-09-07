@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Special Message - AEF Coin Wallet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            margin-top: 50px;
+        }
+        .message-content {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            width: 400px;
+            margin: 0 auto;
+            margin-top: 50px;
+            color: #fff;
+        }
+        .wallet-button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .wallet-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Special Message - AEF Coin Wallet</h1>
+    
+    <div class="message-content">
+        <p>THIS PROJECT IS THE WORK OF SIR_TONY</p>
+        <p>Just to welcome you, you will receive a few coins.</p>
+        <p>Your wallet address:</p>
+        <p><strong>0x1234567890abcdef</strong></p>
+        <p>Select the token:</p>
+        <select id="tokenSelect">
+            <option value="AEF">AEF Coin</option>
+            <!-- Add more token options here -->
+        </select>
+        <button class="wallet-button" onclick="redirectToWallet()">Continue to Wallet</button>
+    </div>
+
+    <script>
+        function redirectToWallet() {
+            // Replace 'wallet.html' with the actual URL of your wallet page
+            window.location.href = 'wallet.html';
+        }
+    </script>
+</body>
+</html>

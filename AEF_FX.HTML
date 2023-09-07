@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AEF Coin Wallet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        .wallet-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            margin: 0 auto;
+        }
+        .login-button, .logout-button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .login-button:hover, .logout-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>AEF Coin Wallet</h1>
+    
+    <div class="wallet-container">
+        <p>Welcome to your AEF Coin wallet!</p>
+        
+        <div id="walletBalance">
+            <h2>Wallet Balance:</h2>
+            <p id="aefBalance">AEF Coin (AEF): 0</p>
+        </div>
+
+        <button class="login-button" onclick="login()">Login</button>
+        <button class="logout-button" onclick="logout()" style="display: none;">Logout</button>
+    </div>
+
+    <script>
+        // Simulated wallet balance
+        const aefBalanceElement = document.getElementById('aefBalance');
+        const initialAefBalance = 1000; // Initial balance (you can update this as needed)
+        let aefBalance = initialAefBalance;
+        let isLoggedIn = false;
+
+        // Update the AEF Coin balance in the wallet
+        function updateBalance() {
+            aefBalanceElement.textContent = `AEF Coin (AEF): ${aefBalance}`;
+        }
+
+        // Handle login
+        function login() {
+            isLoggedIn = true;
+            updateBalance();
+            showLogoutButton();
+        }
+
+        // Handle logout
+        function logout() {
+            isLoggedIn = false;
+            hideLogoutButton();
+        }
+
+        // Show the logout button
+        function showLogoutButton() {
+            const loginButton = document.querySelector('.login-button');
+            const logoutButton = document.querySelector('.logout-button');
+            loginButton.style.display = 'none';
+            logoutButton.style.display = 'block';
+        }
+
+        // Hide the logout button
+        function hideLogoutButton() {
+            const loginButton = document.querySelector('.login-button');
+            const logoutButton = document.querySelector('.logout-button');
+            loginButton.style.display = 'block';
+            logoutButton.style.display = 'none';
+        }
+
+        // Initialize the wallet
+        window.onload = () =>

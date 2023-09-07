@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to AEF Coin Wallet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            margin-top: 50px;
+        }
+        .welcome-content {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            width: 400px;
+            margin: 0 auto;
+            margin-top: 50px;
+            color: #fff;
+        }
+        .login-button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .login-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to AEF Coin Wallet</h1>
+    
+    <div class="welcome-content">
+        <p>Welcome to the world of AEF Coin!</p>
+        <p>We believe in decentralization and security, and that's why our coins are mined by the community.</p>
+        <p>Here's how you can get started with mining:</p>
+        <ol>
+            <li>Download and install our mining software.</li>
+            <li>Join our mining pool.</li>
+            <li>Start mining and contribute to the network.</li>
+        </ol>
+        <p>Ready to get started?</p>
+        <button class="login-button" onclick="redirectToLogin()">Login</button>
+    </div>
+
+    <script>
+        function redirectToLogin() {
+            // Replace 'login.html' with the actual URL of your login page
+            window.location.href = 'login.html';
+        }
+    </script>
+</body>
+</html>
